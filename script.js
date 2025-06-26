@@ -87,30 +87,50 @@ document.querySelectorAll('.project-card, .tutorial-card, .timeline-item').forEa
     observer.observe(el);
 });
 
-// Typing effect for hero title
-function typeWriter(element, text, speed = 100) {
-    let i = 0;
-    element.textContent = '';
-    function type() {
-        if (i < text.length) {
-            element.textContent += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
+function typeWriterAsync(element, text, speed = 100) {
+    return new Promise((resolve) => {
+        let i = 0;
+        element.textContent = '';
+        
+        function type() {
+            if (i < text.length) {
+                element.textContent += text.charAt(i);
+                i++;
+                setTimeout(type, speed);
+            } else {
+                resolve(); // Animation terminée
+            }
         }
-    }
-    type();
+        type();
+    });
 }
 
-// Initialize typing effect when page loads
+// Initialisation avec vérifications supplémentaires
 window.addEventListener('load', () => {
+    const heroTitle = document.querySelector('.hero-title');
     const highlightSpan = document.querySelector('.hero-title .highlight');
+    
+    console.log('Hero title found:', heroTitle);
+    console.log('Highlight span found:', highlightSpan);
+    
     if (highlightSpan) {
-        const originalText = highlightSpan.textContent;
-        highlightSpan.textContent = '';
-        setTimeout(() => {
-            typeWriter(highlightSpan, originalText, 50);
-        }, 500);
+        const originalText = highlightSpan.textContent.trim();
+        console.log('Original text:', originalText);
+        
+        if (originalText) {
+            highlightSpan.textContent = '';
+            setTimeout(() => {
+                typeWriter(highlightSpan, originalText, 50);
+            }, 500);
+        }
+    } else {
+        console.error('Highlight span not found');
     }
+});
+
+// Alternative: Attendez que le DOM soit complètement chargé
+document.addEventListener('DOMContentLoaded', () => {
+    // Même code que ci-dessus si vous préférez DOMContentLoaded à 'load'
 });
 
 // Parallax effect for hero section
