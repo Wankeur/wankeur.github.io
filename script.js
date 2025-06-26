@@ -90,28 +90,27 @@ document.querySelectorAll('.project-card, .tutorial-card, .timeline-item').forEa
 // Typing effect for hero title
 function typeWriter(element, text, speed = 100) {
     let i = 0;
-    element.innerHTML = '';
-    
+    element.textContent = '';
     function type() {
         if (i < text.length) {
-            element.innerHTML += text.charAt(i);
+            element.textContent += text.charAt(i);
             i++;
             setTimeout(type, speed);
         }
     }
-    
     type();
 }
 
 // Initialize typing effect when page loads
 window.addEventListener('load', () => {
-    const heroTitle = document.querySelector('.hero-title');
-    const originalText = heroTitle.innerHTML;
-    
-    // Add a small delay before starting the typing effect
-    setTimeout(() => {
-        typeWriter(heroTitle, originalText, 50);
-    }, 500);
+    const highlightSpan = document.querySelector('.hero-title .highlight');
+    if (highlightSpan) {
+        const originalText = highlightSpan.textContent;
+        highlightSpan.textContent = '';
+        setTimeout(() => {
+            typeWriter(highlightSpan, originalText, 50);
+        }, 500);
+    }
 });
 
 // Parallax effect for hero section
