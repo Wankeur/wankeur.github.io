@@ -1,1 +1,293 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">Your Name</a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#tutorials" class="nav-link">Tutorials</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Hi, I'm <span class="highlight">Your Name</span>
+                </h1>
+                <p class="hero-subtitle">Full Stack Developer & Tech Enthusiast</p>
+                <p class="hero-description">
+                    I create innovative solutions and share knowledge through tutorials and open-source projects.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="profile-card">
+                    <div class="profile-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        I'm a passionate developer with expertise in modern web technologies. 
+                        I love building innovative solutions and sharing knowledge with the community.
+                    </p>
+                    <div class="skills">
+                        <h3>Skills & Technologies</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">TypeScript</span>
+                            <span class="skill-tag">MongoDB</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">Docker</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Project One</h3>
+                        <p>A full-stack web application built with React and Node.js. Features include user authentication, real-time updates, and responsive design.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Project Two</h3>
+                        <p>A mobile-first progressive web app with offline capabilities. Built using modern web standards and optimized for performance.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">PWA</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Service Workers</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Project Three</h3>
+                        <p>An AI-powered application that demonstrates machine learning concepts. Includes data visualization and interactive features.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">Flask</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Senior Developer</h3>
+                        <h4>Company Name</h4>
+                        <span class="timeline-date">2022 - Present</span>
+                        <p>Led development of multiple web applications, mentored junior developers, and implemented best practices for code quality and performance.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Full Stack Developer</h3>
+                        <h4>Previous Company</h4>
+                        <span class="timeline-date">2020 - 2022</span>
+                        <p>Developed and maintained web applications using modern frameworks. Collaborated with cross-functional teams to deliver high-quality solutions.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Junior Developer</h3>
+                        <h4>First Company</h4>
+                        <span class="timeline-date">2019 - 2020</span>
+                        <p>Started my professional journey, learned industry best practices, and contributed to various projects while building foundational skills.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tutorials Section -->
+    <section id="tutorials" class="tutorials">
+        <div class="container">
+            <h2 class="section-title">Tutorials & Articles</h2>
+            <div class="tutorials-grid">
+                <article class="tutorial-card">
+                    <div class="tutorial-image">
+                        <i class="fab fa-js-square"></i>
+                    </div>
+                    <div class="tutorial-content">
+                        <h3>Getting Started with Modern JavaScript</h3>
+                        <p>Learn the fundamentals of ES6+ features and how to use them in your projects effectively.</p>
+                        <div class="tutorial-meta">
+                            <span class="tutorial-date">Dec 2023</span>
+                            <span class="tutorial-read-time">5 min read</span>
+                        </div>
+                        <a href="#" class="tutorial-link">Read More</a>
+                    </div>
+                </article>
+
+                <article class="tutorial-card">
+                    <div class="tutorial-image">
+                        <i class="fab fa-react"></i>
+                    </div>
+                    <div class="tutorial-content">
+                        <h3>Building Responsive Components in React</h3>
+                        <p>A comprehensive guide to creating reusable and responsive React components with modern CSS.</p>
+                        <div class="tutorial-meta">
+                            <span class="tutorial-date">Nov 2023</span>
+                            <span class="tutorial-read-time">8 min read</span>
+                        </div>
+                        <a href="#" class="tutorial-link">Read More</a>
+                    </div>
+                </article>
+
+                <article class="tutorial-card">
+                    <div class="tutorial-image">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="tutorial-content">
+                        <h3>Database Design Best Practices</h3>
+                        <p>Essential principles for designing scalable and efficient database schemas for web applications.</p>
+                        <div class="tutorial-meta">
+                            <span class="tutorial-date">Oct 2023</span>
+                            <span class="tutorial-read-time">12 min read</span>
+                        </div>
+                        <a href="#" class="tutorial-link">Read More</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <p>I'm always interested in new opportunities and collaborations. Feel free to reach out!</p>
+                    <div class="contact-links">
+                        <a href="mailto:your.email@example.com" class="contact-link">
+                            <i class="fas fa-envelope"></i>
+                            your.email@example.com
+                        </a>
+                        <a href="https://linkedin.com/in/yourprofile" class="contact-link">
+                            <i class="fab fa-linkedin"></i>
+                            LinkedIn
+                        </a>
+                        <a href="https://github.com/yourusername" class="contact-link">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </a>
+                        <a href="https://twitter.com/yourusername" class="contact-link">
+                            <i class="fab fa-twitter"></i>
+                            Twitter
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Your Name. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
