@@ -80,7 +80,7 @@ const translations = {
         'Contact': 'Contact',
         
         // Hero Section
-        'Hi, I\'m ': 'Bienvenue, je me nomme ',
+        'Hi, I\'m ': 'Salut, je suis ',
         'A future automation engineer': 'Un futur ingénieur en automatisation',
         'I build this website to share my projects and experience. Maybe you can find something useful here!': 'J\'ai créé ce site web pour partager mes projets et mon expérience. Peut-être que vous y trouverez quelque chose d\'utile !',
         'View Projects': 'Voir les projets',
@@ -106,20 +106,20 @@ const translations = {
         
         // Experience Section
         'Experience': 'Expérience',
-        'Automation Engineer': 'Automaticien',
+        'Automation Engineer': 'Ingénieur en automatisation',
         'February 2025 - Present': 'Février 2025 - Présent',
-        'Leading the development of full machines for different applications from research to aeronautics.': 'Réalisant le développement de programmation de machines complètes pour différentes applications de la recherche à l\'aéronautique.',
+        'Leading the development of full machines for different applications from research to aeronautics.': 'Dirigeant le développement de machines complètes pour différentes applications de la recherche à l\'aéronautique.',
         'Assistant in Electronics Development': 'Assistant en développement électronique',
         'March 2024 - Present': 'Mars 2024 - Présent',
-        'Developing and maintaining electronic systems using modern frameworks. Collaborating with cross-functional teams to deliver high-quality solutions.': 'Développement et réalisation de système électronique basé sur KNX pour des application de domotique .',
-        'Engineering Student': 'Étudiant',
-        'University': 'Henallux',
-        '2019 - 2024': '2022 - Présent',
-        'Started my professional journey, learned industry best practices, and contributed to various projects while building foundational skills.': 'Je construit mon parcours professionnel et mes expériences en parallèle de mes études d\'automaticien au sein de l\'Henallux afin d\'apprendre un maximum et de devenir ingénieur.',
-
+        'Developing and maintaining electronic systems using modern frameworks. Collaborating with cross-functional teams to deliver high-quality solutions.': 'Développement et maintenance de systèmes électroniques utilisant des frameworks modernes. Collaboration avec des équipes transversales pour livrer des solutions de haute qualité.',
+        'Engineering Student': 'Étudiant ingénieur',
+        'University': 'Université',
+        '2019 - 2024': '2019 - 2024',
+        'Started my professional journey, learned industry best practices, and contributed to various projects while building foundational skills.': 'J\'ai commencé mon parcours professionnel, appris les meilleures pratiques de l\'industrie et contribué à divers projets tout en développant des compétences fondamentales.',
+        
         // Tutorials Section
         'Tutorials & Articles': 'Tutoriels & Articles',
-        'WinCC unified reporting setup Siemens': 'Mise en place du reporting WinCC unified Siemens',
+        'Getting Started with PLC Programming': 'Débuter avec la programmation d\'automates',
         'Learn the fundamentals of PLC programming and how to use them in industrial automation projects effectively.': 'Apprenez les fondamentaux de la programmation d\'automates et comment les utiliser efficacement dans les projets d\'automatisation industrielle.',
         'Dec 2023': 'Déc 2023',
         '5 min read': '5 min de lecture',
