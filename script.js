@@ -162,12 +162,20 @@ function switchLanguage(lang) {
     
     // Update all translatable elements
     document.querySelectorAll('[data-en]').forEach(element => {
-        const key = element.getAttribute(`data-${lang}`);
-        if (key && translations[lang] && translations[lang][key]) {
+        const englishText = element.getAttribute('data-en');
+        const frenchText = element.getAttribute('data-fr');
+        
+        if (lang === 'en' && englishText) {
             if (element.innerHTML.includes('&copy;')) {
-                element.innerHTML = translations[lang][key];
+                element.innerHTML = englishText;
             } else {
-                element.textContent = translations[lang][key];
+                element.textContent = englishText;
+            }
+        } else if (lang === 'fr' && frenchText) {
+            if (element.innerHTML.includes('&copy;')) {
+                element.innerHTML = frenchText;
+            } else {
+                element.textContent = frenchText;
             }
         }
     });
