@@ -294,6 +294,12 @@ body {
     margin: 0 auto;
 }
 
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* ou "cover" si tu veux qu’il remplisse bien le cercle */
+}
+
 /* Section Styles */
 section {
     padding: 5rem 0;
