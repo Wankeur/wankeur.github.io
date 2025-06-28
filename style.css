@@ -382,6 +382,7 @@ section {
     display: flex;
     flex-direction: column;
     height: 100%;
+    text-align: center;
 }
 
 .project-card:hover {
@@ -405,12 +406,14 @@ section {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    text-align: center;
 }
 
 .project-content h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
     color: var(--text-primary);
+    text-align: center;
 }
 
 .project-content p {
@@ -418,6 +421,7 @@ section {
     margin-bottom: 1rem;
     line-height: 1.6;
     flex-grow: 1;
+    text-align: center;
 }
 
 .project-tech {
@@ -425,6 +429,7 @@ section {
     flex-wrap: wrap;
     gap: 0.5rem;
     margin-bottom: 1.5rem;
+    justify-content: center;
 }
 
 .tech-tag {
@@ -440,6 +445,7 @@ section {
     display: flex;
     gap: 1rem;
     margin-top: auto;
+    justify-content: center;
 }
 
 .project-link {
@@ -552,6 +558,7 @@ section {
     display: flex;
     flex-direction: column;
     height: 100%;
+    text-align: center;
 }
 
 .tutorial-card:hover {
@@ -575,12 +582,14 @@ section {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    text-align: center;
 }
 
 .tutorial-content h3 {
     font-size: 1.25rem;
     margin-bottom: 1rem;
     color: var(--text-primary);
+    text-align: center;
 }
 
 .tutorial-content p {
@@ -588,6 +597,7 @@ section {
     margin-bottom: 1rem;
     line-height: 1.6;
     flex-grow: 1;
+    text-align: center;
 }
 
 .tutorial-meta {
@@ -604,6 +614,7 @@ section {
     font-weight: 500;
     transition: all 0.3s ease;
     margin-top: auto;
+    text-align: center;
 }
 
 .tutorial-link:hover {
@@ -706,6 +717,7 @@ section {
 
 .project-status {
     margin-top: 1rem;
+    text-align: center;
 }
 
 .status-badge {
