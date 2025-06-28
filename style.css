@@ -261,6 +261,14 @@ body {
     align-items: center;
 }
 
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+
 .profile-card {
     background: var(--card-background);
     border-radius: 1rem;
@@ -295,8 +303,8 @@ body {
 }
 
 .profile-avatar img {
-    width:100%;
-    height: 100%;
+    width:50%;
+    height: 50%;
     object-fit: contain; /* ou "cover" si tu veux qu’il remplisse bien le cercle */
 }
 
