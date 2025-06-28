@@ -305,7 +305,7 @@ body {
 .profile-avatar img {
     width:50%;
     height: 50%;
-    object-fit: contain; /* ou "cover" si tu veux qu’il remplisse bien le cercle */
+    object-fit: contain; /* ou "cover" si tu veux qu'il remplisse bien le cercle */
 }
 
 /* Section Styles */
@@ -379,6 +379,9 @@ section {
     border: 1px solid var(--border-color);
     transition: all 0.3s ease;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .project-card:hover {
@@ -394,10 +397,14 @@ section {
     justify-content: center;
     font-size: 3rem;
     color: white;
+    flex-shrink: 0;
 }
 
 .project-content {
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .project-content h3 {
@@ -410,6 +417,7 @@ section {
     color: var(--text-secondary);
     margin-bottom: 1rem;
     line-height: 1.6;
+    flex-grow: 1;
 }
 
 .project-tech {
@@ -431,6 +439,7 @@ section {
 .project-links {
     display: flex;
     gap: 1rem;
+    margin-top: auto;
 }
 
 .project-link {
@@ -540,6 +549,9 @@ section {
     box-shadow: var(--shadow-lg);
     border: 1px solid var(--border-color);
     transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .tutorial-card:hover {
@@ -555,10 +567,14 @@ section {
     justify-content: center;
     font-size: 3rem;
     color: white;
+    flex-shrink: 0;
 }
 
 .tutorial-content {
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .tutorial-content h3 {
@@ -571,6 +587,7 @@ section {
     color: var(--text-secondary);
     margin-bottom: 1rem;
     line-height: 1.6;
+    flex-grow: 1;
 }
 
 .tutorial-meta {
@@ -586,6 +603,7 @@ section {
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s ease;
+    margin-top: auto;
 }
 
 .tutorial-link:hover {
