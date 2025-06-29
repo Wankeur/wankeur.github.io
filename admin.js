@@ -4,8 +4,16 @@ let currentProjects = [];
 let editingProject = null;
 let currentTechnologies = [];
 
+// Check if we're running locally or on deployed site
+const isLocalDevelopment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
 // Check authentication on page load
 document.addEventListener('DOMContentLoaded', () => {
+    if (!isLocalDevelopment) {
+        showDeploymentMessage();
+        return;
+    }
+    
     if (authToken) {
         showAdminPanel();
         loadProjects();
@@ -13,6 +21,33 @@ document.addEventListener('DOMContentLoaded', () => {
         showLoginForm();
     }
 });
+
+// Show deployment message for static sites
+function showDeploymentMessage() {
+    document.getElementById('login-section').innerHTML = `
+        <div class="login-form">
+            <h2 style="text-align: center; margin-bottom: 1.5rem; color: var(--text-primary);">Admin Panel</h2>
+            <div style="text-align: center; padding: 2rem; background: var(--card-background); border-radius: 1rem; border: 1px solid var(--border-color);">
+                <i class="fas fa-info-circle" style="font-size: 3rem; color: var(--accent-color); margin-bottom: 1rem;"></i>
+                <h3 style="color: var(--text-primary); margin-bottom: 1rem;">Admin Panel Not Available</h3>
+                <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem;">
+                    The admin panel is only available when running the website locally with the development server. 
+                    This deployed version is a static site that showcases the portfolio content.
+                </p>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">
+                    To access the admin panel, run the website locally using <code style="background: var(--background-dark); padding: 0.25rem 0.5rem; border-radius: 0.25rem;">npm run dev</code>
+                </p>
+                <div style="margin-top: 2rem;">
+                    <a href="index.html" class="btn btn-primary">
+                        <i class="fas fa-home"></i> Back to Portfolio
+                    </a>
+                </div>
+            </div>
+        </div>
+    `;
+    document.getElementById('admin-panel').classList.add('hidden');
+    document.getElementById('logout-btn').classList.add('hidden');
+}
 
 // Show/hide sections
 function showLoginForm() {
@@ -30,6 +65,10 @@ function showAdminPanel() {
 // Login functionality
 document.getElementById('login-form').addEventListener('submit', async (e) => {
     e.preventDefault();
+    
+    if (!isLocalDevelopment) {
+        return;
+    }
     
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
@@ -92,6 +131,10 @@ document.getElementById('logout-btn').addEventListener('click', () => {
 
 // Load projects
 async function loadProjects() {
+    if (!isLocalDevelopment) {
+        return;
+    }
+    
     try {
         const response = await fetch('/api/projects');
         const projects = await response.json();
@@ -168,6 +211,10 @@ function closeModal() {
 
 // Add project button
 document.getElementById('add-project-btn').addEventListener('click', () => {
+    if (!isLocalDevelopment) {
+        return;
+    }
+    
     editingProject = null;
     currentTechnologies = [];
     renderTechnologies();
@@ -211,6 +258,10 @@ document.getElementById('new-tech').addEventListener('keypress', (e) => {
 
 // Edit project
 function editProject(projectId) {
+    if (!isLocalDevelopment) {
+        return;
+    }
+    
     const project = currentProjects.find(p => p.id === projectId);
     if (!project) return;
     
@@ -233,6 +284,10 @@ function editProject(projectId) {
 
 // Delete project
 async function deleteProject(projectId) {
+    if (!isLocalDevelopment) {
+        return;
+    }
+    
     if (!confirm('Are you sure you want to delete this project?')) {
         return;
     }
@@ -260,6 +315,10 @@ async function deleteProject(projectId) {
 // Form submission
 document.getElementById('project-form').addEventListener('submit', async (e) => {
     e.preventDefault();
+    
+    if (!isLocalDevelopment) {
+        return;
+    }
     
     const formData = new FormData(e.target);
     const errorDiv = document.getElementById('form-error');
@@ -323,6 +382,10 @@ document.getElementById('project-form').addEventListener('submit', async (e) => 
 
 // Update main website projects
 async function updateMainWebsite() {
+    if (!isLocalDevelopment) {
+        return;
+    }
+    
     try {
         const projects = await fetch('/api/projects').then(r => r.json());
         
