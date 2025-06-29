@@ -12,12 +12,14 @@
     "technologies": [
       "Siemens",
       "TIA Portal",
-      "HMI"
+      "HMI",
+      "WinCC Unified"
     ],
     "status": "completed",
     "icon": "fas fa-robot",
     "featured": true,
-    "createdAt": "2025-06-29T19:14:54.647Z"
+    "createdAt": "2025-06-29T19:14:54.647Z",
+    "updatedAt": "2025-06-29T21:04:03.470Z"
   },
   {
     "id": "robotics-control",
