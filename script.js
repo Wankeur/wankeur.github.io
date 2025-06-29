@@ -182,6 +182,11 @@ function switchLanguage(lang) {
     
     // Save language preference
     localStorage.setItem('preferred-language', lang);
+    
+    // Reload dynamic projects with new language
+    if (window.projectAPI && typeof loadDynamicProjects === 'function') {
+        loadDynamicProjects();
+    }
 }
 
 // Initialize language system
@@ -205,18 +210,20 @@ function initializeLanguage() {
 const navToggle = document.getElementById('nav-toggle');
 const navMenu = document.getElementById('nav-menu');
 
-navToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    navToggle.classList.toggle('active');
-});
-
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        navToggle.classList.remove('active');
+if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        navToggle.classList.toggle('active');
     });
-});
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            navToggle.classList.remove('active');
+        });
+    });
+}
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -236,10 +243,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Navbar background on scroll
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(15, 23, 42, 0.98)';
-    } else {
-        navbar.style.background = 'rgba(15, 23, 42, 0.95)';
+    if (navbar) {
+        if (window.scrollY > 50) {
+            navbar.style.background = 'rgba(15, 23, 42, 0.98)';
+        } else {
+            navbar.style.background = 'rgba(15, 23, 42, 0.95)';
+        }
     }
 });
 
