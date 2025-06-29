@@ -18,12 +18,6 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static('dist'));
 
-// Default admin credentials (change these!)
-const ADMIN_CREDENTIALS = {
-  username: 'admin',
-  password: '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi' // password
-};
-
 // Data file paths
 const PROJECTS_FILE = path.join(__dirname, 'data', 'projects.json');
 const USERS_FILE = path.join(__dirname, 'data', 'users.json');
@@ -94,11 +88,13 @@ async function ensureDataDirectory() {
     try {
       await fs.access(USERS_FILE);
     } catch {
+      // Hash the password "password" for the admin user
+      const hashedPassword = await bcrypt.hash('password', 10);
       const defaultUsers = [
         {
           id: 1,
           username: 'admin',
-          password: ADMIN_CREDENTIALS.password,
+          password: hashedPassword,
           role: 'admin'
         }
       ];
