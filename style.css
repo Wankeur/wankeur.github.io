@@ -429,7 +429,7 @@ section {
     flex-wrap: wrap;
     gap: 0.5rem;
     margin-bottom: 1.5rem;
-    
+    justify-content: center;
     
 }
 
@@ -447,6 +447,7 @@ section {
     gap: 1rem;
     margin-top: auto;
     justify-content: center;
+    margin-left: 1rem;
 }
 
 .project-link {
