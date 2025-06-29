@@ -1,14 +1,8 @@
-// Admin panel functionality for static hosting
+// Admin panel functionality
 let authToken = localStorage.getItem('authToken');
 let currentProjects = [];
 let editingProject = null;
 let currentTechnologies = [];
-
-// Static admin credentials (for demo purposes)
-const STATIC_ADMIN = {
-    username: 'admin',
-    password: 'password'
-};
 
 // Check authentication on page load
 document.addEventListener('DOMContentLoaded', () => {
@@ -33,7 +27,7 @@ function showAdminPanel() {
     document.getElementById('logout-btn').classList.remove('hidden');
 }
 
-// Static login functionality
+// Login functionality
 document.getElementById('login-form').addEventListener('submit', async (e) => {
     e.preventDefault();
     
@@ -41,16 +35,30 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
     const password = document.getElementById('password').value;
     const errorDiv = document.getElementById('login-error');
     
-    // Simple static authentication
-    if (username === STATIC_ADMIN.username && password === STATIC_ADMIN.password) {
-        // Generate a simple token
-        authToken = 'static-admin-token-' + Date.now();
-        localStorage.setItem('authToken', authToken);
-        showAdminPanel();
-        loadProjects();
-        errorDiv.classList.add('hidden');
-    } else {
-        errorDiv.textContent = 'Invalid credentials';
+    try {
+        const response = await fetch('/api/auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username, password })
+        });
+        
+        const data = await response.json();
+        
+        if (response.ok) {
+            authToken = data.token;
+            localStorage.setItem('authToken', authToken);
+            showAdminPanel();
+            loadProjects();
+            errorDiv.classList.add('hidden');
+        } else {
+            errorDiv.textContent = data.error || 'Login failed';
+            errorDiv.classList.remove('hidden');
+        }
+    } catch (error) {
+        console.error('Login error:', error);
+        errorDiv.textContent = 'Network error. Please try again.';
         errorDiv.classList.remove('hidden');
     }
 });
@@ -59,98 +67,24 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
 document.getElementById('logout-btn').addEventListener('click', () => {
     authToken = null;
     localStorage.removeItem('authToken');
-    localStorage.removeItem('staticProjects');
     showLoginForm();
     document.getElementById('login-form').reset();
 });
 
-// Load projects from localStorage or use defaults
+// Load projects
 async function loadProjects() {
     try {
-        // Try to load from localStorage first
-        const storedProjects = localStorage.getItem('staticProjects');
-        if (storedProjects) {
-            currentProjects = JSON.parse(storedProjects);
+        const response = await fetch('/api/projects');
+        const projects = await response.json();
+        
+        if (response.ok) {
+            currentProjects = projects;
+            renderProjects();
         } else {
-            // Use default projects
-            currentProjects = [
-                {
-                    id: 'final-year-project',
-                    title: {
-                        en: 'Final year automation project',
-                        fr: 'Travail de fin d\'études en automatisation'
-                    },
-                    description: {
-                        en: 'A full custom machine build for research on insulated panels.',
-                        fr: 'Une machine entièrement personnalisée construite pour de la recherche sur des panneaux isolants.'
-                    },
-                    technologies: ['Siemens', 'TIA Portal', 'HMI'],
-                    status: 'completed',
-                    icon: 'fas fa-robot',
-                    featured: true,
-                    createdAt: new Date().toISOString()
-                },
-                {
-                    id: 'robotics-control',
-                    title: {
-                        en: 'Robotics Control System',
-                        fr: 'Système de contrôle robotique'
-                    },
-                    description: {
-                        en: 'A ROS2-based control system for industrial robots with advanced path planning and collision detection capabilities.',
-                        fr: 'Un système de contrôle basé sur ROS2 pour robots industriels avec planification de trajectoire avancée et détection de collision.'
-                    },
-                    technologies: ['ROS2', 'C++', 'Python'],
-                    status: 'in-progress',
-                    icon: 'fas fa-cog',
-                    featured: true,
-                    createdAt: new Date().toISOString()
-                },
-                {
-                    id: '3d-printing-optimization',
-                    title: {
-                        en: '3D Printing Optimization',
-                        fr: 'Optimisation d\'impression 3D'
-                    },
-                    description: {
-                        en: 'Custom firmware and slicing algorithms to optimize 3D printing quality and speed for industrial applications.',
-                        fr: 'Firmware personnalisé et algorithmes de découpage pour optimiser la qualité et la vitesse d\'impression 3D pour les applications industrielles.'
-                    },
-                    technologies: ['C++', 'Marlin', 'CAD'],
-                    status: 'completed',
-                    icon: 'fas fa-cube',
-                    featured: true,
-                    createdAt: new Date().toISOString()
-                }
-            ];
-            saveProjects();
+            console.error('Failed to load projects:', projects.error);
         }
-        renderProjects();
     } catch (error) {
         console.error('Error loading projects:', error);
-        currentProjects = [];
-        renderProjects();
-    }
-}
-
-// Save projects to localStorage
-function saveProjects() {
-    try {
-        localStorage.setItem('staticProjects', JSON.stringify(currentProjects));
-        // Also update the main website projects
-        updateMainWebsiteProjects();
-    } catch (error) {
-        console.error('Error saving projects:', error);
-    }
-}
-
-// Update main website projects in localStorage
-function updateMainWebsiteProjects() {
-    try {
-        // Update the projects that the main website uses
-        localStorage.setItem('websiteProjects', JSON.stringify(currentProjects));
-    } catch (error) {
-        console.error('Error updating main website projects:', error);
     }
 }
 
@@ -279,18 +213,28 @@ function editProject(projectId) {
 }
 
 // Delete project
-function deleteProject(projectId) {
+async function deleteProject(projectId) {
     if (!confirm('Are you sure you want to delete this project?')) {
         return;
     }
     
     try {
-        currentProjects = currentProjects.filter(p => p.id !== projectId);
-        saveProjects();
-        renderProjects();
+        const response = await fetch(`/api/projects/${projectId}`, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${authToken}`
+            }
+        });
+        
+        if (response.ok) {
+            loadProjects(); // Reload projects
+        } else {
+            const error = await response.json();
+            alert('Failed to delete project: ' + (error.error || 'Unknown error'));
+        }
     } catch (error) {
         console.error('Error deleting project:', error);
-        alert('Failed to delete project');
+        alert('Network error. Please try again.');
     }
 }
 
@@ -320,43 +264,40 @@ document.getElementById('project-form').addEventListener('submit', async (e) => 
         status: formData.get('status'),
         icon: formData.get('icon'),
         featured: formData.has('featured'),
-        technologies: currentTechnologies,
-        createdAt: editingProject ? editingProject.createdAt : new Date().toISOString(),
-        updatedAt: new Date().toISOString()
+        technologies: currentTechnologies
     };
     
     try {
-        if (editingProject) {
-            // Update existing project
-            const projectIndex = currentProjects.findIndex(p => p.id === editingProject.id);
-            if (projectIndex !== -1) {
-                currentProjects[projectIndex] = projectData;
-            }
+        const url = editingProject ? `/api/projects/${editingProject.id}` : '/api/projects';
+        const method = editingProject ? 'PUT' : 'POST';
+        
+        const response = await fetch(url, {
+            method: method,
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${authToken}`
+            },
+            body: JSON.stringify(projectData)
+        });
+        
+        const result = await response.json();
+        
+        if (response.ok) {
+            successDiv.textContent = editingProject ? 'Project updated successfully!' : 'Project created successfully!';
+            successDiv.classList.remove('hidden');
+            
+            // Reload projects and close modal after a short delay
+            setTimeout(() => {
+                loadProjects();
+                closeModal();
+            }, 1500);
         } else {
-            // Add new project
-            // Ensure unique ID
-            if (currentProjects.find(p => p.id === projectData.id)) {
-                errorDiv.textContent = 'Project ID already exists';
-                errorDiv.classList.remove('hidden');
-                return;
-            }
-            currentProjects.push(projectData);
+            errorDiv.textContent = result.error || 'Failed to save project';
+            errorDiv.classList.remove('hidden');
         }
-        
-        saveProjects();
-        renderProjects();
-        
-        successDiv.textContent = editingProject ? 'Project updated successfully!' : 'Project created successfully!';
-        successDiv.classList.remove('hidden');
-        
-        // Close modal after a short delay
-        setTimeout(() => {
-            closeModal();
-        }, 1500);
-        
     } catch (error) {
         console.error('Error saving project:', error);
-        errorDiv.textContent = 'Failed to save project';
+        errorDiv.textContent = 'Network error. Please try again.';
         errorDiv.classList.remove('hidden');
     }
 });

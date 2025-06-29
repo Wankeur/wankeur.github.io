@@ -1,4 +1,4 @@
-// API helper functions for the main website (updated for static hosting)
+// API helper functions for the main website
 class ProjectAPI {
     constructor() {
         this.baseURL = window.location.origin;
@@ -6,14 +6,11 @@ class ProjectAPI {
 
     async getProjects() {
         try {
-            // First try to get projects from localStorage (updated by admin panel)
-            const storedProjects = localStorage.getItem('websiteProjects') || localStorage.getItem('staticProjects');
-            if (storedProjects) {
-                return JSON.parse(storedProjects);
+            const response = await fetch(`${this.baseURL}/api/projects`);
+            if (response.ok) {
+                return await response.json();
             }
-            
-            // Fallback to default projects
-            return this.getFallbackProjects();
+            throw new Error('Failed to fetch projects');
         } catch (error) {
             console.error('Error fetching projects:', error);
             return this.getFallbackProjects();
@@ -22,8 +19,11 @@ class ProjectAPI {
 
     async getProject(id) {
         try {
-            const projects = await this.getProjects();
-            return projects.find(p => p.id === id) || null;
+            const response = await fetch(`${this.baseURL}/api/projects/${id}`);
+            if (response.ok) {
+                return await response.json();
+            }
+            throw new Error('Failed to fetch project');
         } catch (error) {
             console.error('Error fetching project:', error);
             return null;
@@ -31,7 +31,7 @@ class ProjectAPI {
     }
 
     getFallbackProjects() {
-        // Fallback projects in case nothing is stored
+        // Fallback projects in case API is not available
         return [
             {
                 id: 'final-year-project',
@@ -163,13 +163,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Only load dynamic projects if we're not in admin panel
     if (!window.location.pathname.includes('admin.html')) {
         loadDynamicProjects();
-        
-        // Listen for storage changes to update projects when admin makes changes
-        window.addEventListener('storage', (e) => {
-            if (e.key === 'websiteProjects' || e.key === 'staticProjects') {
-                loadDynamicProjects();
-            }
-        });
     }
 });
 
