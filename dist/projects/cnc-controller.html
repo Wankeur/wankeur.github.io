@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom CNC Controller - DÆDALE</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="../Images/favicon.png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html">DÆDALE</a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="../index.html" class="nav-link" data-en="Home" data-fr="Accueil">Home</a>
+                <a href="../index.html#about" class="nav-link" data-en="About" data-fr="À propos">About</a>
+                <a href="../projects.html" class="nav-link" data-en="Projects" data-fr="Projets">Projects</a>
+                <a href="../index.html#experience" class="nav-link" data-en="Experience" data-fr="Expérience">Experience</a>
+                <a href="../index.html#tutorials" class="nav-link" data-en="Tutorials" data-fr="Tutoriels">Tutorials</a>
+                <a href="../index.html#contact" class="nav-link" data-en="Contact" data-fr="Contact">Contact</a>
+            </div>
+            <div class="nav-right">
+                <div class="language-toggle">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="fr">FR</button>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Header -->
+    <section class="project-header">
+        <div class="container">
+            <div class="project-breadcrumb">
+                <a href="../projects.html" data-en="← Back to Projects" data-fr="← Retour aux projets">← Back to Projects</a>
+            </div>
+            <h1 class="project-title" data-en="Custom CNC Controller" data-fr="Contrôleur CNC personnalisé">Custom CNC Controller</h1>
+            <div class="project-meta">
+                <span class="project-date" data-en="In Progress: Started March 2024" data-fr="En cours : Commencé en mars 2024">In Progress: Started March 2024</span>
+                <span class="project-duration" data-en="Expected Duration: 6 months" data-fr="Durée prévue : 6 mois">Expected Duration: 6 months</span>
+            </div>
+            <div class="project-tech-header">
+                <span class="tech-tag">C++</span>
+                <span class="tech-tag">Real-time</span>
+                <span class="tech-tag">G-code</span>
+                <span class="tech-tag">Motion Control</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Content -->
+    <section class="project-content">
+        <div class="container">
+            <div class="project-layout">
+                <div class="project-main">
+                    <!-- Project Overview -->
+                    <div class="content-section">
+                        <h2 data-en="Project Overview" data-fr="Aperçu du projet">Project Overview</h2>
+                        <p data-en="Development of a high-precision CNC controller with custom G-code interpreter and advanced motion control algorithms. The controller is designed for precision manufacturing applications requiring sub-micron accuracy and smooth motion profiles." data-fr="Développement d'un contrôleur CNC haute précision avec interpréteur G-code personnalisé et algorithmes de contrôle de mouvement avancés. Le contrôleur est conçu pour les applications de fabrication de précision nécessitant une précision sous-micronique et des profils de mouvement fluides.">
+                            Development of a high-precision CNC controller with custom G-code interpreter and advanced motion control algorithms. The controller is designed for precision manufacturing applications requiring sub-micron accuracy and smooth motion profiles.
+                        </p>
+                    </div>
+
+                    <!-- Current Progress -->
+                    <div class="content-section">
+                        <h2 data-en="Current Progress" data-fr="Progrès actuel">Current Progress</h2>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                            <span class="progress-text">75% Complete</span>
+                        </div>
+                        <div class="milestone-list">
+                            <div class="milestone completed">
+                                <i class="fas fa-check-circle"></i>
+                                <span data-en="Hardware Design and PCB Layout" data-fr="Conception matérielle et layout PCB">Hardware Design and PCB Layout</span>
+                            </div>
+                            <div class="milestone completed">
+                                <i class="fas fa-check-circle"></i>
+                                <span data-en="G-code Parser Implementation" data-fr="Implémentation du parseur G-code">G-code Parser Implementation</span>
+                            </div>
+                            <div class="milestone completed">
+                                <i class="fas fa-check-circle"></i>
+                                <span data-en="Motion Planning Algorithms" data-fr="Algorithmes de planification de mouvement">Motion Planning Algorithms</span>
+                            </div>
+                            <div class="milestone in-progress">
+                                <i class="fas fa-clock"></i>
+                                <span data-en="Real-time Control Loop" data-fr="Boucle de contrôle temps réel">Real-time Control Loop</span>
+                            </div>
+                            <div class="milestone pending">
+                                <i class="fas fa-circle"></i>
+                                <span data-en="User Interface Development" data-fr="Développement de l'interface utilisateur">User Interface Development</span>
+                            </div>
+                            <div class="milestone pending">
+                                <i class="fas fa-circle"></i>
+                                <span data-en="Testing and Calibration" data-fr="Tests et calibration">Testing and Calibration</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Technical Implementation -->
+                    <div class="content-section">
+                        <h2 data-en="Technical Implementation" data-fr="Implémentation technique">Technical Implementation</h2>
+                        <p data-en="The controller is built around a high-performance ARM Cortex-M7 microcontroller running at 400MHz with dedicated floating-point unit for real-time calculations. The system implements advanced motion control algorithms including look-ahead trajectory planning and jerk-limited acceleration profiles." data-fr="Le contrôleur est construit autour d'un microcontrôleur ARM Cortex-M7 haute performance fonctionnant à 400MHz avec une unité de calcul en virgule flottante dédiée pour les calculs temps réel. Le système implémente des algorithmes de contrôle de mouvement avancés incluant la planification de trajectoire avec anticipation et des profils d'accélération limités en à-coup.">
+                            The controller is built around a high-performance ARM Cortex-M7 microcontroller running at 400MHz with dedicated floating-point unit for real-time calculations. The system implements advanced motion control algorithms including look-ahead trajectory planning and jerk-limited acceleration profiles.
+                        </p>
+                        
+                        <h3 data-en="Key Features" data-fr="Fonctionnalités clés">Key Features</h3>
+                        <ul>
+                            <li data-en="Custom G-code interpreter with extended command set" data-fr="Interpréteur G-code personnalisé avec jeu de commandes étendu">Custom G-code interpreter with extended command set</li>
+                            <li data-en="Real-time motion planning with look-ahead" data-fr="Planification de mouvement temps réel avec anticipation">Real-time motion planning with look-ahead</li>
+                            <li data-en="Closed-loop position control with encoder feedback" data-fr="Contrôle de position en boucle fermée avec retour encodeur">Closed-loop position control with encoder feedback</li>
+                            <li data-en="Ethernet and USB connectivity" data-fr="Connectivité Ethernet et USB">Ethernet and USB connectivity</li>
+                            <li data-en="Web-based configuration interface" data-fr="Interface de configuration basée sur le web">Web-based configuration interface</li>
+                        </ul>
+                    </div>
+
+                    <!-- Performance Specifications -->
+                    <div class="content-section">
+                        <h2 data-en="Performance Specifications" data-fr="Spécifications de performance">Performance Specifications</h2>
+                        <div class="specs-grid">
+                            <div class="spec-item">
+                                <h4 data-en="Position Accuracy" data-fr="Précision de position">Position Accuracy</h4>
+                                <p>±0.5 μm</p>
+                            </div>
+                            <div class="spec-item">
+                                <h4 data-en="Maximum Feed Rate" data-fr="Vitesse d'avance maximale">Maximum Feed Rate</h4>
+                                <p>15 m/min</p>
+                            </div>
+                            <div class="spec-item">
+                                <h4 data-en="Acceleration" data-fr="Accélération">Acceleration</h4>
+                                <p>5 m/s²</p>
+                            </div>
+                            <div class="spec-item">
+                                <h4 data-en="Control Loop Frequency" data-fr="Fréquence de boucle de contrôle">Control Loop Frequency</h4>
+                                <p>10 kHz</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Current Challenges -->
+                    <div class="content-section">
+                        <h2 data-en="Current Challenges" data-fr="Défis actuels">Current Challenges</h2>
+                        <div class="challenge-item">
+                            <h4 data-en="Real-time Performance Optimization" data-fr="Optimisation des performances temps réel">Real-time Performance Optimization</h4>
+                            <p data-en="Ensuring deterministic execution times for critical control loops while maintaining system responsiveness." data-fr="Assurer des temps d'exécution déterministes pour les boucles de contrôle critiques tout en maintenant la réactivité du système.">Ensuring deterministic execution times for critical control loops while maintaining system responsiveness.</p>
+                        </div>
+                        <div class="challenge-item">
+                            <h4 data-en="Thermal Management" data-fr="Gestion thermique">Thermal Management</h4>
+                            <p data-en="Managing heat dissipation from high-power stepper drivers while maintaining precision." data-fr="Gérer la dissipation thermique des pilotes de moteurs pas à pas haute puissance tout en maintenant la précision.">Managing heat dissipation from high-power stepper drivers while maintaining precision.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Sidebar -->
+                <div class="project-sidebar">
+                    <div class="sidebar-section">
+                        <h3 data-en="Project Details" data-fr="Détails du projet">Project Details</h3>
+                        <div class="detail-item">
+                            <strong data-en="Status:" data-fr="Statut :">Status:</strong>
+                            <span class="status-badge in-progress" data-en="In Progress" data-fr="En cours">In Progress</span>
+                        </div>
+                        <div class="detail-item">
+                            <strong data-en="Role:" data-fr="Rôle :">Role:</strong>
+                            <span data-en="Hardware/Software Engineer" data-fr="Ingénieur matériel/logiciel">Hardware/Software Engineer</span>
+                        </div>
+                        <div class="detail-item">
+                            <strong data-en="Team Size:" data-fr="Taille de l'équipe :">Team Size:</strong>
+                            <span>1 developer</span>
+                        </div>
+                        <div class="detail-item">
+                            <strong data-en="Target Machine:" data-fr="Machine cible :">Target Machine:</strong>
+                            <span>3-Axis CNC Mill</span>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h3 data-en="Technologies Used" data-fr="Technologies utilisées">Technologies Used</h3>
+                        <div class="tech-list">
+                            <span class="tech-item">ARM Cortex-M7</span>
+                            <span class="tech-item">C++17</span>
+                            <span class="tech-item">FreeRTOS</span>
+                            <span class="tech-item">STM32CubeIDE</span>
+                            <span class="tech-item">Altium Designer</span>
+                            <span class="tech-item">MATLAB/Simulink</span>
+                            <span class="tech-item">Git</span>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h3 data-en="Project Links" data-fr="Liens du projet">Project Links</h3>
+                        <div class="project-links">
+                            <a href="#" class="project-link-btn">
+                                <i class="fab fa-github"></i>
+                                <span data-en="Source Code" data-fr="Code source">Source Code</span>
+                            </a>
+                            <a href="#" class="project-link-btn">
+                                <i class="fas fa-file-pdf"></i>
+                                <span data-en="Technical Documentation" data-fr="Documentation technique">Technical Documentation</span>
+                            </a>
+                            <a href="#" class="project-link-btn">
+                                <i class="fas fa-microchip"></i>
+                                <span data-en="Hardware Schematics" data-fr="Schémas matériels">Hardware Schematics</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p data-en="&copy; 2025 Radermacker Alexandre. All rights reserved." data-fr="&copy; 2025 Radermacker Alexandre. Tous droits réservés.">&copy; 2025 Radermacker Alexandre. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

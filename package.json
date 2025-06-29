@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && cp -r script.js style.css admin.html admin.js api.js projects.html projects data Images CNAME dist/",
     "preview": "vite preview"
   },
   "dependencies": {

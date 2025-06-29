@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROS2 Robotics Control System - Radermacker Alexandre</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html">Radermacker Alexandre</a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="../index.html" class="nav-link" data-en="Home" data-fr="Accueil">Home</a>
+                <a href="../index.html#about" class="nav-link" data-en="About" data-fr="À propos">About</a>
+                <a href="../projects.html" class="nav-link" data-en="Projects" data-fr="Projets">Projects</a>
+                <a href="../index.html#experience" class="nav-link" data-en="Experience" data-fr="Expérience">Experience</a>
+                <a href="../index.html#tutorials" class="nav-link" data-en="Tutorials" data-fr="Tutoriels">Tutorials</a>
+                <a href="../index.html#contact" class="nav-link" data-en="Contact" data-fr="Contact">Contact</a>
+            </div>
+            <div class="nav-right">
+                <div class="language-toggle">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="fr">FR</button>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Header -->
+    <section class="project-header">
+        <div class="container">
+            <div class="project-breadcrumb">
+                <a href="../projects.html" data-en="← Back to Projects" data-fr="← Retour aux projets">← Back to Projects</a>
+            </div>
+            <h1 class="project-title" data-en="ROS2 Robotics Control System" data-fr="Système de contrôle robotique ROS2">ROS2 Robotics Control System</h1>
+            <div class="project-meta">
+                <span class="project-date" data-en="In Progress: Started January 2024" data-fr="En cours : Commencé en janvier 2024">In Progress: Started January 2024</span>
+                <span class="project-duration" data-en="Expected Duration: 8 months" data-fr="Durée prévue : 8 mois">Expected Duration: 8 months</span>
+            </div>
+            <div class="project-tech-header">
+                <span class="tech-tag">ROS2</span>
+                <span class="tech-tag">C++</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Gazebo</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Content -->
+    <section class="project-content">
+        <div class="container">
+            <div class="project-layout">
+                <div class="project-main">
+                    <!-- Project Overview -->
+                    <div class="content-section">
+                        <h2 data-en="Project Overview" data-fr="Aperçu du projet">Project Overview</h2>
+                        <p data-en="Development of an advanced robotics control system using ROS2 framework for industrial applications. The system focuses on precise motion control, path planning, and real-time collision detection for robotic arms in manufacturing environments." data-fr="Développement d'un système de contrôle robotique avancé utilisant le framework ROS2 pour les applications industrielles. Le système se concentre sur le contrôle de mouvement précis, la planification de trajectoire et la détection de collision en temps réel pour les bras robotiques dans les environnements de fabrication.">
+                            Development of an advanced robotics control system using ROS2 framework for industrial applications. The system focuses on precise motion control, path planning, and real-time collision detection for robotic arms in manufacturing environments.
+                        </p>
+                    </div>
+
+                    <!-- Current Progress -->
+                    <div class="content-section">
+                        <h2 data-en="Current Progress" data-fr="Progrès actuel">Current Progress</h2>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                            <span class="progress-text">65% Complete</span>
+                        </div>
+                        <div class="milestone-list">
+                            <div class="milestone completed">
+                                <i class="fas fa-check-circle"></i>
+                                <span data-en="ROS2 Environment Setup" data-fr="Configuration de l'environnement ROS2">ROS2 Environment Setup</span>
+                            </div>
+                            <div class="milestone completed">
+                                <i class="fas fa-check-circle"></i>
+                                <span data-en="Basic Motion Control Implementation" data-fr="Implémentation du contrôle de mouvement de base">Basic Motion Control Implementation</span>
+                            </div>
+                            <div class="milestone completed">
+                                <i class="fas fa-check-circle"></i>
+                                <span data-en="Simulation Environment in Gazebo" data-fr="Environnement de simulation dans Gazebo">Simulation Environment in Gazebo</span>
+                            </div>
+                            <div class="milestone in-progress">
+                                <i class="fas fa-clock"></i>
+                                <span data-en="Path Planning Algorithm" data-fr="Algorithme de planification de trajectoire">Path Planning Algorithm</span>
+                            </div>
+                            <div class="milestone pending">
+                                <i class="fas fa-circle"></i>
+                                <span data-en="Collision Detection System" data-fr="Système de détection de collision">Collision Detection System</span>
+                            </div>
+                            <div class="milestone pending">
+                                <i class="fas fa-circle"></i>
+                                <span data-en="Real Hardware Integration" data-fr="Intégration matérielle réelle">Real Hardware Integration</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Technical Implementation -->
+                    <div class="content-section">
+                        <h2 data-en="Technical Implementation" data-fr="Implémentation technique">Technical Implementation</h2>
+                        <p data-en="The system is built on ROS2 Humble with custom nodes for motion control, sensor integration, and path planning. The architecture follows ROS2 best practices with proper node lifecycle management and real-time capabilities." data-fr="Le système est construit sur ROS2 Humble avec des nœuds personnalisés pour le contrôle de mouvement, l'intégration de capteurs et la planification de trajectoire. L'architecture suit les meilleures pratiques ROS2 avec une gestion appropriée du cycle de vie des nœuds et des capacités temps réel.">
+                            The system is built on ROS2 Humble with custom nodes for motion control, sensor integration, and path planning. The architecture follows ROS2 best practices with proper node lifecycle management and real-time capabilities.
+                        </p>
+                        
+                        <h3 data-en="Key Components" data-fr="Composants clés">Key Components</h3>
+                        <ul>
+                            <li data-en="Motion Controller Node (C++)" data-fr="Nœud de contrôleur de mouvement (C++)">Motion Controller Node (C++)</li>
+                            <li data-en="Path Planning Service (Python)" data-fr="Service de planification de trajectoire (Python)">Path Planning Service (Python)</li>
+                            <li data-en="Sensor Fusion Node" data-fr="Nœud de fusion de capteurs">Sensor Fusion Node</li>
+                            <li data-en="Safety Monitor System" data-fr="Système de surveillance de sécurité">Safety Monitor System</li>
+                            <li data-en="Gazebo Simulation Environment" data-fr="Environnement de simulation Gazebo">Gazebo Simulation Environment</li>
+                        </ul>
+                    </div>
+
+                    <!-- Challenges -->
+                    <div class="content-section">
+                        <h2 data-en="Current Challenges" data-fr="Défis actuels">Current Challenges</h2>
+                        <div class="challenge-item">
+                            <h4 data-en="Real-time Performance" data-fr="Performance en temps réel">Real-time Performance</h4>
+                            <p data-en="Ensuring deterministic behavior for safety-critical applications while maintaining ROS2's flexibility." data-fr="Assurer un comportement déterministe pour les applications critiques de sécurité tout en maintenant la flexibilité de ROS2.">Ensuring deterministic behavior for safety-critical applications while maintaining ROS2's flexibility.</p>
+                        </div>
+                        <div class="challenge-item">
+                            <h4 data-en="Complex Path Planning" data-fr="Planification de trajectoire complexe">Complex Path Planning</h4>
+                            <p data-en="Implementing efficient algorithms for dynamic obstacle avoidance in cluttered environments." data-fr="Implémentation d'algorithmes efficaces pour l'évitement d'obstacles dynamiques dans des environnements encombrés.">Implementing efficient algorithms for dynamic obstacle avoidance in cluttered environments.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Sidebar -->
+                <div class="project-sidebar">
+                    <div class="sidebar-section">
+                        <h3 data-en="Project Details" data-fr="Détails du projet">Project Details</h3>
+                        <div class="detail-item">
+                            <strong data-en="Status:" data-fr="Statut :">Status:</strong>
+                            <span class="status-badge in-progress" data-en="In Progress" data-fr="En cours">In Progress</span>
+                        </div>
+                        <div class="detail-item">
+                            <strong data-en="Role:" data-fr="Rôle :">Role:</strong>
+                            <span data-en="Lead Developer" data-fr="Développeur principal">Lead Developer</span>
+                        </div>
+                        <div class="detail-item">
+                            <strong data-en="Team Size:" data-fr="Taille de l'équipe :">Team Size:</strong>
+                            <span>2 developers</span>
+                        </div>
+                        <div class="detail-item">
+                            <strong data-en="Target Robot:" data-fr="Robot cible :">Target Robot:</strong>
+                            <span>6-DOF Industrial Arm</span>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h3 data-en="Technologies Used" data-fr="Technologies utilisées">Technologies Used</h3>
+                        <div class="tech-list">
+                            <span class="tech-item">ROS2 Humble</span>
+                            <span class="tech-item">C++17</span>
+                            <span class="tech-item">Python 3.10</span>
+                            <span class="tech-item">Gazebo Classic</span>
+                            <span class="tech-item">MoveIt2</span>
+                            <span class="tech-item">OpenCV</span>
+                            <span class="tech-item">PCL</span>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h3 data-en="Project Links" data-fr="Liens du projet">Project Links</h3>
+                        <div class="project-links">
+                            <a href="#" class="project-link-btn">
+                                <i class="fab fa-github"></i>
+                                <span data-en="Source Code" data-fr="Code source">Source Code</span>
+                            </a>
+                            <a href="#" class="project-link-btn">
+                                <i class="fas fa-book"></i>
+                                <span data-en="Documentation" data-fr="Documentation">Documentation</span>
+                            </a>
+                            <a href="#" class="project-link-btn">
+                                <i class="fas fa-play"></i>
+                                <span data-en="Simulation Demo" data-fr="Démo de simulation">Simulation Demo</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p data-en="&copy; 2024 Radermacker Alexandre. All rights reserved." data-fr="&copy; 2024 Radermacker Alexandre. Tous droits réservés.">&copy; 2024 Radermacker Alexandre. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
