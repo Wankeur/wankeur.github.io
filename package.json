@@ -8,7 +8,8 @@
     "build": "vite build && cp -r script.js style.css admin.html admin.js api.js projects.html projects data Images CNAME dist/",
     "preview": "vite preview",
     "start": "node server.js",
-    "local": "node server.js"
+    "local": "node server.js",
+    "admin": "echo 'Starting admin server...' && node server.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
