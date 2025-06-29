@@ -44,7 +44,26 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
             body: JSON.stringify({ username, password })
         });
         
-        const data = await response.json();
+        // Get the raw response text first
+        const responseText = await response.text();
+        
+        // Check if response is empty
+        if (!responseText) {
+            errorDiv.textContent = 'Empty server response. Please try again.';
+            errorDiv.classList.remove('hidden');
+            return;
+        }
+        
+        // Try to parse JSON with error handling
+        let data;
+        try {
+            data = JSON.parse(responseText);
+        } catch (jsonError) {
+            console.error('JSON parsing error:', jsonError);
+            errorDiv.textContent = 'Invalid server response. Please try again.';
+            errorDiv.classList.remove('hidden');
+            return;
+        }
         
         if (response.ok) {
             authToken = data.token;
