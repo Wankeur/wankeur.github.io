@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && cp -r script.js style.css admin.html admin.js api.js projects.html projects data Images CNAME dist/",
+    "build": "vite build && cp -r script.js style.css projects.html projects data Images CNAME dist/",
     "preview": "vite preview",
     "start": "node server.js",
     "local": "node server.js"
