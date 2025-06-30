@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoT Monitoring Dashboard - DÆDALE</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="../Images/favicon.png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html">DÆDALE</a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="../index.html" class="nav-link" data-en="Home" data-fr="Accueil">Home</a>
+                <a href="../index.html#about" class="nav-link" data-en="About" data-fr="À propos">About</a>
+                <a href="../projects.html" class="nav-link" data-en="Projects" data-fr="Projets">Projects</a>
+                <a href="../index.html#experience" class="nav-link" data-en="Experience" data-fr="Expérience">Experience</a>
+                <a href="../index.html#tutorials" class="nav-link" data-en="Tutorials" data-fr="Tutoriels">Tutorials</a>
+                <a href="../index.html#contact" class="nav-link" data-en="Contact" data-fr="Contact">Contact</a>
+            </div>
+            <div class="nav-right">
+                <div class="language-toggle">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="fr">FR</button>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Header -->
+    <section class="project-header">
+        <div class="container">
+            <div class="project-breadcrumb">
+                <a href="../projects.html" data-en="← Back to Projects" data-fr="← Retour aux projets">← Back to Projects</a>
+            </div>
+            <h1 class="project-title" data-en="IoT Monitoring Dashboard" data-fr="Tableau de bord de surveillance IoT">IoT Monitoring Dashboard</h1>
+            <div class="project-meta">
+                <span class="project-date" data-en="Planning Phase: 2025" data-fr="Phase de planification : 2025">Planning Phase: 2025</span>
+                <span class="project-duration" data-en="Expected Duration: 4 months" data-fr="Durée prévue : 4 mois">Expected Duration: 4 months</span>
+            </div>
+            <div class="project-tech-header">
+                <span class="tech-tag">Arduino</span>
+                <span class="tech-tag">ESP32</span>
+                <span class="tech-tag">MQTT</span>
+                <span class="tech-tag">Node.js</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Content -->
+    <section class="project-content">
+        <div class="container">
+            <div class="project-layout">
+                <div class="project-main">
+                    <!-- Project Overview -->
+                    <div class="content-section">
+                        <h2 data-en="Project Overview" data-fr="Aperçu du projet">Project Overview</h2>
+                        <p data-en="Development of a comprehensive IoT monitoring system for industrial equipment. The system will provide real-time monitoring, predictive maintenance capabilities, and alert systems to optimize equipment performance and reduce downtime." data-fr="Développement d'un système de surveillance IoT complet pour les équipements industriels. Le système fournira une surveillance en temps réel, des capacités de maintenance prédictive et des systèmes d'alerte pour optimiser les performances des équipements et réduire les temps d'arrêt.">
+                            Development of a comprehensive IoT monitoring system for industrial equipment. The system will provide real-time monitoring, predictive maintenance capabilities, and alert systems to optimize equipment performance and reduce downtime.
+                        </p>
+                    </div>
+
+                    <!-- Planned Features -->
+                    <div class="content-section">
+                        <h2 data-en="Planned Features" data-fr="Fonctionnalités prévues">Planned Features</h2>
+                        <ul class="feature-list">
+                            <li data-en="Real-time sensor data collection and transmission" data-fr="Collecte et transmission de données de capteurs en temps réel">Real-time sensor data collection and transmission</li>
+                            <li data-en="Web-based dashboard for monitoring and control" data-fr="Tableau de bord web pour la surveillance et le contrôle">Web-based dashboard for monitoring and control</li>
+                            <li data-en="Predictive maintenance algorithms" data-fr="Algorithmes de maintenance prédictive">Predictive maintenance algorithms</li>
+                            <li data-en="Automated alert and notification system" data-fr="Système d'alerte et de notification automatisé">Automated alert and notification system</li>
+                            <li data-en="Historical data analysis and reporting" data-fr="Analyse et rapport des données historiques">Historical data analysis and reporting</li>
+                            <li data-en="Mobile app for remote monitoring" data-fr="Application mobile pour la surveillance à distance">Mobile app for remote monitoring</li>
+                        </ul>
+                    </div>
+
+                    <!-- Technical Architecture -->
+                    <div class="content-section">
+                        <h2 data-en="Technical Architecture" data-fr="Architecture technique">Technical Architecture</h2>
+                        <p data-en="The system will be built using a distributed architecture with ESP32 microcontrollers as sensor nodes, MQTT for communication, and a Node.js backend for data processing and web interface." data-fr="Le système sera construit en utilisant une architecture distribuée avec des microcontrôleurs ESP32 comme nœuds de capteurs, MQTT pour la communication, et un backend Node.js pour le traitement des données et l'interface web.">
+                            The system will be built using a distributed architecture with ESP32 microcontrollers as sensor nodes, MQTT for communication, and a Node.js backend for data processing and web interface.
+                        </p>
+                        
+                        <h3 data-en="System Components" data-fr="Composants du système">System Components</h3>
+                        <ul>
+                            <li data-en="ESP32-based sensor nodes with WiFi connectivity" data-fr="Nœuds de capteurs basés sur ESP32 avec connectivité WiFi">ESP32-based sensor nodes with WiFi connectivity</li>
+                            <li data-en="MQTT broker for message routing" data-fr="Courtier MQTT pour le routage des messages">MQTT broker for message routing</li>
+                            <li data-en="Node.js server with Express framework" data-fr="Serveur Node.js avec framework Express">Node.js server with Express framework</li>
+                            <li data-en="MongoDB database for data storage" data-fr="Base de données MongoDB pour le stockage des données">MongoDB database for data storage</li>
+                            <li data-en="React-based web dashboard" data-fr="Tableau de bord web basé sur React">React-based web dashboard</li>
+                        </ul>
+                    </div>
+
+                    <!-- Project Timeline -->
+                    <div class="content-section">
+                        <h2 data-en="Project Timeline" data-fr="Calendrier du projet">Project Timeline</h2>
+                        <div class="timeline-planning">
+                            <div class="timeline-phase">
+                                <h4 data-en="Phase 1: Hardware Setup (Month 1)" data-fr="Phase 1 : Configuration matérielle (Mois 1)">Phase 1: Hardware Setup (Month 1)</h4>
+                                <p data-en="Design and assemble sensor nodes, test communication protocols" data-fr="Concevoir et assembler les nœuds de capteurs, tester les protocoles de communication">Design and assemble sensor nodes, test communication protocols</p>
+                            </div>
+                            <div class="timeline-phase">
+                                <h4 data-en="Phase 2: Backend Development (Month 2)" data-fr="Phase 2 : Développement backend (Mois 2)">Phase 2: Backend Development (Month 2)</h4>
+                                <p data-en="Develop server infrastructure, database design, API endpoints" data-fr="Développer l'infrastructure serveur, conception de base de données, points de terminaison API">Develop server infrastructure, database design, API endpoints</p>
+                            </div>
+                            <div class="timeline-phase">
+                                <h4 data-en="Phase 3: Dashboard Development (Month 3)" data-fr="Phase 3 : Développement du tableau de bord (Mois 3)">Phase 3: Dashboard Development (Month 3)</h4>
+                                <p data-en="Create web interface, implement real-time data visualization" data-fr="Créer l'interface web, implémenter la visualisation de données en temps réel">Create web interface, implement real-time data visualization</p>
+                            </div>
+                            <div class="timeline-phase">
+                                <h4 data-en="Phase 4: Testing & Deployment (Month 4)" data-fr="Phase 4 : Tests et déploiement (Mois 4)">Phase 4: Testing & Deployment (Month 4)</h4>
+                                <p data-en="System integration testing, performance optimization, deployment" data-fr="Tests d'intégration système, optimisation des performances, déploiement">System integration testing, performance optimization, deployment</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Expected Outcomes -->
+                    <div class="content-section">
+                        <h2 data-en="Expected Outcomes" data-fr="Résultats attendus">Expected Outcomes</h2>
+                        <div class="results-grid">
+                            <div class="result-item">
+                                <div class="result-number">24/7</div>
+                                <div class="result-label" data-en="Continuous Monitoring" data-fr="Surveillance continue">Continuous Monitoring</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-number">30%</div>
+                                <div class="result-label" data-en="Reduced Downtime" data-fr="Réduction des temps d'arrêt">Reduced Downtime</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-number">50+</div>
+                                <div class="result-label" data-en="Monitored Parameters" data-fr="Paramètres surveillés">Monitored Parameters</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Sidebar -->
+                <div class="project-sidebar">
+                    <div class="sidebar-section">
+                        <h3 data-en="Project Details" data-fr="Détails du projet">Project Details</h3>
+                        <div class="detail-item">
+                            <strong data-en="Status:" data-fr="Statut :">Status:</strong>
+                            <span class="status-badge planning" data-en="Planning" data-fr="Planification">Planning</span>
+                        </div>
+                        <div class="detail-item">
+                            <strong data-en="Role:" data-fr="Rôle :">Role:</strong>
+                            <span data-en="Full Stack Developer" data-fr="Développeur Full Stack">Full Stack Developer</span>
+                        </div>
+                        <div class="detail-item">
+                            <strong data-en="Team Size:" data-fr="Taille de l'équipe :">Team Size:</strong>
+                            <span>1 developer</span>
+                        </div>
+                        <div class="detail-item">
+                            <strong data-en="Budget:" data-fr="Budget :">Budget:</strong>
+                            <span>€2,000</span>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h3 data-en="Technologies Planned" data-fr="Technologies prévues">Technologies Planned</h3>
+                        <div class="tech-list">
+                            <span class="tech-item">ESP32</span>
+                            <span class="tech-item">Arduino IDE</span>
+                            <span class="tech-item">MQTT</span>
+                            <span class="tech-item">Node.js</span>
+                            <span class="tech-item">Express.js</span>
+                            <span class="tech-item">MongoDB</span>
+                            <span class="tech-item">React</span>
+                            <span class="tech-item">Socket.io</span>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h3 data-en="Project Resources" data-fr="Ressources du projet">Project Resources</h3>
+                        <div class="project-links">
+                            <a href="#" class="project-link-btn">
+                                <i class="fas fa-file-alt"></i>
+                                <span data-en="Project Proposal" data-fr="Proposition de projet">Project Proposal</span>
+                            </a>
+                            <a href="#" class="project-link-btn">
+                                <i class="fas fa-sitemap"></i>
+                                <span data-en="System Architecture" data-fr="Architecture système">System Architecture</span>
+                            </a>
+                            <a href="#" class="project-link-btn">
+                                <i class="fas fa-calendar"></i>
+                                <span data-en="Project Timeline" data-fr="Calendrier du projet">Project Timeline</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p data-en="&copy; 2025 Radermacker Alexandre. All rights reserved." data-fr="&copy; 2025 Radermacker Alexandre. Tous droits réservés.">&copy; 2025 Radermacker Alexandre. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
