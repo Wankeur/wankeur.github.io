@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" type="image/png" href="/assets/favicon-egNH9syZ.png">
-  <link rel="stylesheet" crossorigin href="/assets/index-CY_ntr_r.css">
+  <link rel="stylesheet" crossorigin href="/assets/index-HF66RKZD.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -311,5 +311,27 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="data/projects.js"></script>
+    <script src="js/project-generator.js"></script>
+    <script>
+        // Generate featured projects on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const projectsGrid = document.querySelector('.projects-grid');
+            if (projectsGrid && typeof projects !== 'undefined') {
+                const generator = new ProjectGenerator();
+                projectsGrid.innerHTML = generator.generateFeaturedProjects();
+                
+                // Add click handlers to project cards
+                document.querySelectorAll('.project-card').forEach(card => {
+                    card.addEventListener('click', function() {
+                        const projectId = this.getAttribute('data-project-id') || 
+                                        this.querySelector('h3').textContent.toLowerCase()
+                                        .replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, '-');
+                        window.location.href = `projects/${projectId}.html`;
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>
