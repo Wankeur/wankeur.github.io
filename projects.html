@@ -180,5 +180,27 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="data/projects.js"></script>
+    <script src="js/project-generator.js"></script>
+    <script>
+        // Generate all projects on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const projectsGrid = document.querySelector('.projects-grid');
+            if (projectsGrid && typeof projects !== 'undefined') {
+                const generator = new ProjectGenerator();
+                projectsGrid.innerHTML = generator.generateAllProjects();
+                
+                // Add click handlers to project cards
+                document.querySelectorAll('.project-card').forEach(card => {
+                    card.addEventListener('click', function() {
+                        const projectId = this.getAttribute('data-project-id') || 
+                                        this.querySelector('h3').textContent.toLowerCase()
+                                        .replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, '-');
+                        window.location.href = `projects/${projectId}.html`;
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>
