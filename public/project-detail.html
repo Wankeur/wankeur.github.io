@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project - DÆDALE</title>
+    <meta name="description" content="Project details - DÆDALE Portfolio">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="/Images/favicon.png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="/">DÆDALE</a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="/" class="nav-link" data-en="Home" data-fr="Accueil">Home</a>
+                <a href="/#about" class="nav-link" data-en="About" data-fr="À propos">About</a>
+                <a href="/projects" class="nav-link" data-en="Projects" data-fr="Projets">Projects</a>
+                <a href="/#experience" class="nav-link" data-en="Experience" data-fr="Expérience">Experience</a>
+                <a href="/#tutorials" class="nav-link" data-en="Tutorials" data-fr="Tutoriels">Tutorials</a>
+                <a href="/#contact" class="nav-link" data-en="Contact" data-fr="Contact">Contact</a>
+            </div>
+            <div class="nav-right">
+                <div class="language-toggle">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="fr">FR</button>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Content -->
+    <div id="project-content">
+        <!-- Project details will be loaded dynamically -->
+        <div class="loading-container">
+            <div class="loading">Loading project...</div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p data-en="&copy; 2025 Radermacker Alexandre. All rights reserved." data-fr="&copy; 2025 Radermacker Alexandre. Tous droits réservés.">&copy; 2025 Radermacker Alexandre. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>
