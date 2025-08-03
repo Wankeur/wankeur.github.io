@@ -47,9 +47,11 @@ const Navigation = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 gradient-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm">D</span>
-            </div>
+            <img 
+              src="/src/assets/logo-daedale.png" 
+              alt="DAEDALE Logo" 
+              className="w-8 h-8 rounded-lg object-contain"
+            />
             <span className="text-xl font-bold gradient-text">DÆDALE</span>
           </Link>
 
