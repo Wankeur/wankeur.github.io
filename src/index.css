@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* DÆDALE Design System - Original colors from GitHub site
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Background colors */
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    /* Card and surfaces */
+    --card: 217 33% 17%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 217 33% 17%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Primary brand - Dark green */
+    --primary: 159 69% 18%;
+    --primary-foreground: 210 40% 98%;
+    --primary-glow: 159 64% 52%;
+
+    /* Secondary - Blue */
+    --secondary: 222 82% 39%;
+    --secondary-foreground: 210 40% 98%;
+
+    /* Muted elements */
+    --muted: 215 25% 27%;
+    --muted-foreground: 215 20% 65%;
+
+    /* Accent - Green */
+    --accent: 159 84% 39%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Borders and inputs */
+    --border: 215 25% 27%;
+    --input: 217 33% 17%;
+    --ring: 159 84% 39%;
+
+    --radius: 0.75rem;
+
+    /* Custom DÆDALE colors */
+    --hero-bg: linear-gradient(135deg, hsl(222 47% 11%) 0%, hsl(217 33% 17%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(159 69% 18%) 0%, hsl(222 82% 39%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(159 84% 39%) 0%, hsl(214 93% 68%) 100%);
+    
+    /* Shadows */
+    --shadow-glow: 0 0 40px hsl(159 84% 39% / 0.4);
+    --shadow-card: 0 10px 30px -10px hsl(222 47% 5% / 0.8);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .light {
+    /* Light mode (keeping original values for contrast) */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 180 100% 50%;
+    --primary-foreground: 215 28% 10%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 180 100% 50%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 180 100% 50%;
+    --hero-bg: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(210 40% 98%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(180 100% 50%) 0%, hsl(180 100% 60%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(180 80% 40%) 0%, hsl(180 90% 50%) 100%);
+    --shadow-glow: 0 0 40px hsl(180 100% 50% / 0.3);
+    --shadow-card: 0 10px 30px -10px hsl(215 30% 15% / 0.1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: var(--hero-bg);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+  }
+
+  .hero-section {
+    background: var(--hero-bg);
+    box-shadow: var(--shadow-card);
+  }
+
+  .glow-effect {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(159 84% 39%) 0%, hsl(214 93% 68%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .smooth-transition {
+    transition: var(--transition-smooth);
+  }
+}
