@@ -26,9 +26,11 @@ app.use(helmet({
 app.use(compression());
 app.use(cors());
 
-// Static files
-app.use(express.static(path.join(__dirname, 'public')));
+// Static files - serve Vite build output
+app.use(express.static(path.join(__dirname, 'dist')));
 app.use('/Images', express.static(path.join(__dirname, 'Images')));
+// Fallback for legacy public folder
+app.use(express.static(path.join(__dirname, 'public')));
 
 // API Routes
 app.get('/api/projects', (req, res) => {
@@ -57,17 +59,15 @@ app.get('/api/projects/:id', (req, res) => {
     }
 });
 
-// Routes
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
-app.get('/projects', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'projects.html'));
-});
-
-app.get('/projects/:id', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'project-detail.html'));
+// SPA routes - serve React app for all non-API routes
+app.get('*', (req, res, next) => {
+    // Skip API routes
+    if (req.path.startsWith('/api/')) {
+        return next();
+    }
+    
+    // Serve React app
+    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
 // Health check endpoint
