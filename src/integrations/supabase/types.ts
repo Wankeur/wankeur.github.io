@@ -102,6 +102,7 @@ export type Database = {
           created_at: string
           demo_url: string | null
           description: string
+          file_urls: string[] | null
           github_url: string | null
           id: string
           image_url: string | null
@@ -117,6 +118,7 @@ export type Database = {
           created_at?: string
           demo_url?: string | null
           description: string
+          file_urls?: string[] | null
           github_url?: string | null
           id?: string
           image_url?: string | null
@@ -132,6 +134,7 @@ export type Database = {
           created_at?: string
           demo_url?: string | null
           description?: string
+          file_urls?: string[] | null
           github_url?: string | null
           id?: string
           image_url?: string | null
@@ -158,6 +161,7 @@ export type Database = {
           created_by: string | null
           description: string
           difficulty: string
+          file_urls: string[] | null
           id: string
           image_url: string | null
           published: boolean
@@ -171,6 +175,7 @@ export type Database = {
           created_by?: string | null
           description: string
           difficulty?: string
+          file_urls?: string[] | null
           id?: string
           image_url?: string | null
           published?: boolean
@@ -184,6 +189,7 @@ export type Database = {
           created_by?: string | null
           description?: string
           difficulty?: string
+          file_urls?: string[] | null
           id?: string
           image_url?: string | null
           published?: boolean

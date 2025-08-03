@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import FileUpload from "@/components/FileUpload";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -24,6 +25,7 @@ const SubmitProject = () => {
     github_url: "",
     demo_url: ""
   });
+  const [fileUrls, setFileUrls] = useState<string[]>([]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -31,7 +33,7 @@ const SubmitProject = () => {
 
     setLoading(true);
     try {
-      const { error } = await supabase
+      const { data: newProject, error } = await supabase
         .from('projects')
         .insert({
           user_id: user.id,
@@ -41,10 +43,27 @@ const SubmitProject = () => {
           image_url: formData.image_url || null,
           github_url: formData.github_url || null,
           demo_url: formData.demo_url || null,
+          file_urls: fileUrls,
           status: 'pending'
-        });
+        })
+        .select()
+        .single();
 
       if (error) throw error;
+
+      // Send notification to admin
+      try {
+        await supabase.functions.invoke('notify-admin', {
+          body: {
+            type: 'project',
+            id: newProject.id,
+            title: formData.title,
+            user_id: user.id
+          }
+        });
+      } catch (notifyError) {
+        console.warn('Failed to send admin notification:', notifyError);
+      }
 
       toast({
         title: "Project Submitted!",
@@ -156,6 +175,12 @@ const SubmitProject = () => {
                   placeholder="https://your-demo.com"
                 />
               </div>
+
+              <FileUpload
+                onFilesChange={setFileUrls}
+                bucket="project-files"
+                maxFiles={5}
+              />
 
               <Button type="submit" className="w-full" disabled={loading}>
                 {loading ? "Submitting..." : "Submit Project"}
