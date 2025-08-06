@@ -25,6 +25,7 @@ const Projects = () => {
   // Fallback projects for when no user-submitted projects are available
   const fallbackProjects = [
     {
+      id: "fallback-1",
       title: "Final Year Automation Project",
       description: "A full custom machine build for research on insulated panels.",
       image: projectAutomation,
@@ -36,6 +37,7 @@ const Projects = () => {
       }
     },
     {
+      id: "fallback-2",
       title: "Industrial Automation System - Desimone",
       description: "Complete programming of a special machine for a research and development center, creating prototypes of insulating panels.",
       image: projectAutomation,
@@ -47,6 +49,7 @@ const Projects = () => {
       }
     },
     {
+      id: "fallback-3",
       title: "ROS2 Robotics Control System",
       description: "A ROS2-based control system for industrial robots with advanced path planning and collision detection capabilities.",
       image: projectRobotics,

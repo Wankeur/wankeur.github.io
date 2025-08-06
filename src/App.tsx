@@ -8,6 +8,7 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Founder from "./pages/Founder";
+import Privacy from "./pages/Privacy";
 import Projects from "./pages/Projects";
 import ProjectDetail from "./pages/ProjectDetail";
 
@@ -40,6 +41,7 @@ const App = () => (
               <Route path="/tutorials" element={<Tutorials />} />
               <Route path="/tutorials/:id" element={<TutorialDetail />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/privacy" element={<Privacy />} />
               <Route path="/auth" element={<Auth />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/submit-project" element={<SubmitProject />} />

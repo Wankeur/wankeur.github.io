@@ -41,6 +41,12 @@ const ProjectDetail = () => {
     }
   }, [id]);
 
+  useEffect(() => {
+    if (project) {
+      document.title = `${project.title} - Daedale`;
+    }
+  }, [project]);
+
   const fetchProject = async () => {
     try {
       const { data, error } = await supabase

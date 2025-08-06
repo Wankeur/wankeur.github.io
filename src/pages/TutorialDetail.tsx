@@ -59,6 +59,12 @@ const TutorialDetail = () => {
     fetchTutorial();
   }, [id]);
 
+  useEffect(() => {
+    if (tutorial) {
+      document.title = `${tutorial.title} - Daedale`;
+    }
+  }, [tutorial]);
+
   const getLevelColor = (level: string) => {
     switch (level.toLowerCase()) {
       case "beginner":
