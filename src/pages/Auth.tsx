@@ -14,6 +14,8 @@ const Auth = () => {
   const { toast } = useToast();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -39,11 +41,11 @@ const Auth = () => {
 
   const handleEmailSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !password) return;
+    if (!email || !password || !firstName || !lastName) return;
     
     try {
       setLoading(true);
-      const { error } = await signUp(email, password);
+      const { error } = await signUp(email, password, firstName, lastName);
       
       if (error) {
         toast({
@@ -162,23 +164,47 @@ const Auth = () => {
             
             <TabsContent value="signup" className="space-y-4 mt-4">
               <form onSubmit={handleEmailSignUp} className="space-y-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="signup-firstname">Prénom</Label>
+                    <Input
+                      id="signup-firstname"
+                      type="text"
+                      placeholder="Votre prénom"
+                      value={firstName}
+                      onChange={(e) => setFirstName(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="signup-lastname">Nom</Label>
+                    <Input
+                      id="signup-lastname"
+                      type="text"
+                      placeholder="Votre nom"
+                      value={lastName}
+                      onChange={(e) => setLastName(e.target.value)}
+                      required
+                    />
+                  </div>
+                </div>
                 <div className="space-y-2">
                   <Label htmlFor="signup-email">Email</Label>
                   <Input
                     id="signup-email"
                     type="email"
-                    placeholder="Enter your email"
+                    placeholder="Votre email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="signup-password">Password</Label>
+                  <Label htmlFor="signup-password">Mot de passe</Label>
                   <Input
                     id="signup-password"
                     type="password"
-                    placeholder="Choose a password"
+                    placeholder="Choisissez un mot de passe"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
@@ -186,7 +212,7 @@ const Auth = () => {
                   />
                 </div>
                 <Button type="submit" className="w-full" disabled={loading}>
-                  Create Account
+                  Créer un compte
                 </Button>
               </form>
             </TabsContent>

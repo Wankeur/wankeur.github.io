@@ -43,32 +43,53 @@ const CommentSection = ({ projectId }: CommentSectionProps) => {
 
   const fetchComments = async () => {
     try {
-      const { data, error } = await supabase
+      // First get comments
+      const { data: commentsData, error: commentsError } = await supabase
         .from('comments')
-        .select(`
-          *,
-          profiles (
-            first_name,
-            last_name
-          )
-        `)
+        .select('*')
         .eq('project_id', projectId)
         .order('created_at', { ascending: true });
 
-      if (error) {
-        console.error('Error fetching comments:', error);
+      if (commentsError) {
+        console.error('Error fetching comments:', commentsError);
         return;
       }
+
+      // Get unique user IDs
+      const userIds = [...new Set(commentsData.map(comment => comment.user_id))];
+      
+      // Fetch profiles for these users
+      const { data: profilesData, error: profilesError } = await supabase
+        .from('profiles')
+        .select('user_id, first_name, last_name')
+        .in('user_id', userIds);
+
+      if (profilesError) {
+        console.error('Error fetching profiles:', profilesError);
+        return;
+      }
+
+      // Create profile lookup map
+      const profileMap = new Map();
+      profilesData?.forEach(profile => {
+        profileMap.set(profile.user_id, profile);
+      });
+
+      // Merge comments with profile data
+      const enrichedComments = commentsData.map(comment => ({
+        ...comment,
+        profiles: profileMap.get(comment.user_id) || { first_name: 'Anonymous', last_name: 'User' }
+      }));
 
       // Organize comments into threads
       const commentMap = new Map();
       const rootComments: Comment[] = [];
 
-      data.forEach(comment => {
+      enrichedComments.forEach(comment => {
         commentMap.set(comment.id, { ...comment, replies: [] });
       });
 
-      data.forEach(comment => {
+      enrichedComments.forEach(comment => {
         if (comment.parent_comment_id) {
           const parent = commentMap.get(comment.parent_comment_id);
           if (parent) {

@@ -89,7 +89,7 @@ const Contact = () => {
                 
                 <div className="space-y-2">
                   <Label htmlFor="message">Message</Label>
-                  <Textarea id="message" placeholder="Tell me about your project or question..." className="min-h-[120px]" />
+                  <Textarea id="message" placeholder="Tell us about your project or question..." className="min-h-[120px]" />
                 </div>
                 
                 <Button type="submit" variant="hero" className="w-full">

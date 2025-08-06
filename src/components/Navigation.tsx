@@ -48,9 +48,9 @@ const Navigation = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <img 
-              src="/src/assets/logo-daedale.png" 
+              src="/lovable-uploads/2eaa4952-8460-41cf-90dd-4ca5fdd3674d.png" 
               alt="DAEDALE Logo" 
-              className="w-8 h-8 rounded-lg object-contain"
+              className="w-10 h-10 rounded-lg object-contain"
             />
             <span className="text-xl font-bold gradient-text">DÆDALE</span>
           </Link>

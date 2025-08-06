@@ -31,7 +31,7 @@ const Hero = () => {
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
                 <Button variant="outline" size="lg" className="group border-accent text-accent hover:bg-accent hover:text-accent-foreground">
-                  {t("hero.contact")}
+                  Contact
                   <ExternalLink className="ml-2 h-4 w-4 group-hover:scale-110 transition-transform" />
                 </Button>
               </div>
@@ -44,7 +44,7 @@ const Hero = () => {
               <div className="w-80 h-80 rounded-2xl bg-card/50 backdrop-blur-sm border border-primary/20 flex items-center justify-center glow-effect">
                 <div className="text-center space-y-6">
                   {/* Original DÆDALE Logo */}
-                  <div className="w-64 h-64 mx-auto flex items-center justify-center">
+                  <div className="w-80 h-80 mx-auto flex items-center justify-center">
                     <img src={logoImage} alt="DÆDALE Logo" className="max-w-full max-h-full object-contain filter brightness-110" />
                   </div>
                   
