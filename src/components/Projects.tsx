@@ -11,10 +11,12 @@ interface Project {
   title: string;
   description: string;
   image_url?: string;
+  file_urls?: string[];
   technologies: string[];
   status: string;
   github_url?: string;
   demo_url?: string;
+  profiles?: { first_name: string; last_name: string } | null;
 }
 
 const Projects = () => {
@@ -69,7 +71,10 @@ const Projects = () => {
     try {
       const { data, error } = await supabase
         .from('projects')
-        .select('*')
+        .select(`
+          id, title, description, image_url, file_urls, technologies, status, github_url, demo_url,
+          profiles:profiles!projects_user_id_fkey ( first_name, last_name )
+        `)
         .eq('status', 'approved')
         .order('approved_at', { ascending: false });
 
@@ -102,16 +107,17 @@ const Projects = () => {
           ) : (
             displayProjects.map((project) => (
               <ProjectCard 
-                key={project.id || project.title}
-                id={project.id}
-                title={project.title}
-                description={project.description}
-                image={project.image_url || project.image || projectRobotics}
-                technologies={project.technologies}
-                status={project.status}
+                key={project.id || (project as any).title}
+                id={(project as any).id}
+                title={(project as any).title}
+                description={(project as any).description}
+                image={(project as any).file_urls?.[0] || (project as any).image_url || (project as any).image || projectRobotics}
+                technologies={(project as any).technologies}
+                status={(project as any).status}
+                author={(project as any).profiles ? `${(project as any).profiles?.first_name || ''} ${(project as any).profiles?.last_name || ''}`.trim() : 'DÆDALE Team'}
                 links={{
-                  github: project.github_url || project.links?.github,
-                  demo: project.demo_url || project.links?.demo
+                  github: (project as any).github_url || (project as any).links?.github,
+                  demo: (project as any).demo_url || (project as any).links?.demo
                 }}
               />
             ))

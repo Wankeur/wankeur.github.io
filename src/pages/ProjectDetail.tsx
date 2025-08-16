@@ -11,12 +11,22 @@ import { Card } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import CommentSection from "@/components/CommentSection";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import projectAutomation from "@/assets/project-automation.jpg";
+import projectRobotics from "@/assets/project-robotics.jpg";
 
 interface Project {
   id: string;
   title: string;
   description: string;
   image_url: string;
+  file_urls?: string[];
   technologies: string[];
   status: string;
   github_url?: string;
@@ -49,6 +59,67 @@ const ProjectDetail = () => {
 
   const fetchProject = async () => {
     try {
+      // Check if it's a fallback project
+      if (id?.startsWith('fallback-')) {
+        const fallbackProjects = [
+            {
+            id: "fallback-1",
+            title: "Final Year Automation Project",
+            description: "A full custom machine build for research on insulated panels.",
+            image_url: projectAutomation,
+            file_urls: [projectAutomation],
+            technologies: ["Siemens", "TIA Portal", "HMI", "SCADA"],
+            status: "approved",
+            github_url: "#",
+            demo_url: "#",
+            created_at: "2024-01-15",
+            profiles: {
+              first_name: "DÆDALE",
+              last_name: "Team"
+            }
+          },
+          {
+            id: "fallback-2",
+            title: "Industrial Automation System - Desimone",
+            description: "Complete programming of a special machine for a research and development center, creating prototypes of insulating panels.",
+            image_url: projectAutomation,
+            file_urls: [projectAutomation],
+            technologies: ["Siemens", "TIA Portal", "HMI", "WinCC Unified"],
+            status: "approved",
+            github_url: "#",
+            demo_url: "#",
+            created_at: "2024-01-10",
+            profiles: {
+              first_name: "DÆDALE",
+              last_name: "Team"
+            }
+          },
+          {
+            id: "fallback-3",
+            title: "ROS2 Robotics Control System",
+            description: "A ROS2-based control system for industrial robots with advanced path planning and collision detection capabilities.",
+            image_url: projectRobotics,
+            file_urls: [projectRobotics],
+            technologies: ["ROS2", "C++", "Python", "Gazebo"],
+            status: "approved",
+            github_url: "#",
+            created_at: "2024-01-05",
+            profiles: {
+              first_name: "DÆDALE",
+              last_name: "Team"
+            }
+          }
+        ];
+
+        const fallbackProject = fallbackProjects.find(p => p.id === id);
+        if (fallbackProject) {
+          setProject(fallbackProject as Project);
+          setLoading(false);
+          return;
+        }
+      }
+
+      // Fetch from database for real projects
       const { data, error } = await supabase
         .from('projects')
         .select(`
@@ -219,13 +290,38 @@ const ProjectDetail = () => {
               )}
             </div>
 
-            {/* Project Image */}
-            <div className="aspect-video rounded-lg overflow-hidden">
-              <img 
-                src={project.image_url || "/placeholder.svg"} 
-                alt={project.title}
-                className="w-full h-full object-cover"
-              />
+            {/* Project Images Gallery */}
+            <div className="space-y-4">
+              {project.file_urls && project.file_urls.length > 1 ? (
+                <div>
+                  <h3 className="text-lg font-semibold mb-3">Project Gallery</h3>
+                  <Carousel className="w-full">
+                    <CarouselContent>
+                      {project.file_urls.map((imageUrl, index) => (
+                        <CarouselItem key={index}>
+                          <div className="aspect-video rounded-lg overflow-hidden">
+                            <img 
+                              src={imageUrl} 
+                              alt={`${project.title} - Image ${index + 1}`}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    <CarouselPrevious />
+                    <CarouselNext />
+                  </Carousel>
+                </div>
+              ) : (
+                <div className="aspect-video rounded-lg overflow-hidden">
+                  <img 
+                    src={project.file_urls?.[0] || project.image_url || "/placeholder.svg"} 
+                    alt={project.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
             </div>
           </div>
 

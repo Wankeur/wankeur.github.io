@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Github, Eye } from "lucide-react";
+import { ExternalLink, Github, Eye, User } from "lucide-react";
 import { Link } from "react-router-dom";
 
 interface ProjectCardProps {
@@ -15,9 +15,10 @@ interface ProjectCardProps {
     github?: string;
     demo?: string;
   };
+  author?: string;
 }
 
-const ProjectCard = ({ id, title, description, image, technologies, status, links }: ProjectCardProps) => {
+const ProjectCard = ({ id, title, description, image, technologies, status, links, author }: ProjectCardProps) => {
   const getStatusColor = (status: string) => {
     switch (status) {
       case "Completed":
@@ -52,6 +53,13 @@ const ProjectCard = ({ id, title, description, image, technologies, status, link
             {status}
           </Badge>
         </div>
+        
+        {author && (
+          <div className="flex items-center gap-2 text-xs text-muted-foreground">
+            <User className="w-3 h-3" />
+            <span>{author}</span>
+          </div>
+        )}
         
         <p className="text-muted-foreground text-sm leading-relaxed">
           {description}

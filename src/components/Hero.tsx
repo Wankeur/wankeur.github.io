@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import logoImage from "@/assets/logo-daedale.png";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Link } from "react-router-dom";
 const Hero = () => {
   const {
     t
@@ -26,9 +27,11 @@ const Hero = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button variant="default" size="lg" className="group bg-accent hover:bg-accent/90 text-accent-foreground">
-                  {t("hero.viewProjects")}
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                <Button asChild variant="default" size="lg" className="group bg-accent hover:bg-accent/90 text-accent-foreground">
+                  <Link to="/projects">
+                    {t("hero.viewProjects")}
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
                 </Button>
                 <Button variant="outline" size="lg" className="group border-accent text-accent hover:bg-accent hover:text-accent-foreground">
                   Contact

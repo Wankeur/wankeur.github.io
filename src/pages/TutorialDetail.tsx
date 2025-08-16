@@ -129,6 +129,9 @@ const TutorialDetail = () => {
                 src={tutorial.image_url || projectAutomation} 
                 alt={tutorial.title}
                 className="w-full h-full object-cover"
+                onError={(e) => {
+                  e.currentTarget.src = projectAutomation;
+                }}
               />
             </div>
             <div className="p-8">

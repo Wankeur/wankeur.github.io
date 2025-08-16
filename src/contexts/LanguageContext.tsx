@@ -45,7 +45,7 @@ const translations = {
     
     // Projects Section
     'projects.title': 'Featured Projects',
-    'projects.subtitle': 'Discover my latest automation and robotics projects',
+    'projects.subtitle': 'Discover the latest automation and robotics projects',
     'projects.viewDetails': 'View Details',
     'projects.viewAll': 'View All Projects',
     
@@ -119,7 +119,7 @@ const translations = {
     
     // Projects Section
     'projects.title': 'Projets en Vedette',
-    'projects.subtitle': 'Découvrez mes derniers projets d\'automatisation et de robotique',
+    'projects.subtitle': 'Découvrez les derniers projets d\'automatisation et de robotique',
     'projects.viewDetails': 'Voir les détails',
     'projects.viewAll': 'Voir tous les projets',
     
