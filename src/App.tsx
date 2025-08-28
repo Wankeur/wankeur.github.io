@@ -1,3 +1,4 @@
+import React from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -11,9 +12,10 @@ import Founder from "./pages/Founder";
 import Privacy from "./pages/Privacy";
 import Projects from "./pages/Projects";
 import ProjectDetail from "./pages/ProjectDetail";
-
 import Tutorials from "./pages/Tutorials";
 import TutorialDetail from "./pages/TutorialDetail";
+import SubmitTutorial from "./pages/SubmitTutorial";
+import MyTutorials from "./pages/MyTutorials";
 import Contact from "./pages/Contact";
 import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
@@ -40,6 +42,8 @@ const App = () => (
               
               <Route path="/tutorials" element={<Tutorials />} />
               <Route path="/tutorials/:id" element={<TutorialDetail />} />
+              <Route path="/submit-tutorial" element={<SubmitTutorial />} />
+              <Route path="/my-tutorials" element={<MyTutorials />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/auth" element={<Auth />} />

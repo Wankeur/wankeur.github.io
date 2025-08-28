@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { PlusCircle, Settings, Users, FileText } from "lucide-react";
+import { PlusCircle, Settings, Users, FileText, BookOpen, GraduationCap } from "lucide-react";
 
 const Dashboard = () => {
   const { user, isAdmin } = useAuth();
@@ -61,6 +61,36 @@ const Dashboard = () => {
                 </CardTitle>
                 <CardDescription>
                   View and manage your submitted projects
+                </CardDescription>
+              </CardHeader>
+            </Card>
+          </Link>
+
+          {/* Submit Tutorial Card */}
+          <Link to="/submit-tutorial">
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <BookOpen className="h-5 w-5 text-primary" />
+                  Submit Tutorial
+                </CardTitle>
+                <CardDescription>
+                  Share your knowledge with step-by-step tutorials
+                </CardDescription>
+              </CardHeader>
+            </Card>
+          </Link>
+
+          {/* My Tutorials Card */}
+          <Link to="/my-tutorials">
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <GraduationCap className="h-5 w-5 text-primary" />
+                  My Tutorials
+                </CardTitle>
+                <CardDescription>
+                  View and manage your submitted tutorials
                 </CardDescription>
               </CardHeader>
             </Card>

@@ -215,9 +215,11 @@ const Tutorials = () => {
               Have knowledge to share? I'm always looking for guest contributors to help 
               grow the automation engineering community.
             </p>
-            <Button variant="hero">
-              Submit a Tutorial
-            </Button>
+            <Link to="/submit-tutorial">
+              <Button variant="hero">
+                Submit a Tutorial
+              </Button>
+            </Link>
           </Card>
         </div>
       </div>

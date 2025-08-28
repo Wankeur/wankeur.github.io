@@ -14,6 +14,7 @@ interface Project {
   file_urls?: string[];
   technologies: string[];
   status: string;
+  project_phase: string;
   github_url?: string;
   demo_url?: string;
   profiles?: { first_name: string; last_name: string } | null;
@@ -33,6 +34,7 @@ const Projects = () => {
       image: projectAutomation,
       technologies: ["Siemens", "TIA Portal", "HMI", "SCADA"],
       status: "Completed" as const,
+      project_phase: "completed" as const,
       links: {
         github: "#",
         demo: "#"
@@ -45,6 +47,7 @@ const Projects = () => {
       image: projectAutomation,
       technologies: ["Siemens", "TIA Portal", "HMI", "WinCC Unified"],
       status: "Completed" as const,
+      project_phase: "legacy" as const,
       links: {
         github: "#",
         demo: "#"
@@ -57,6 +60,7 @@ const Projects = () => {
       image: projectRobotics,
       technologies: ["ROS2", "C++", "Python", "Gazebo"],
       status: "In Progress" as const,
+      project_phase: "in_development" as const,
       links: {
         github: "#"
       }
@@ -72,7 +76,7 @@ const Projects = () => {
       const { data, error } = await supabase
         .from('projects')
         .select(`
-          id, title, description, image_url, file_urls, technologies, status, github_url, demo_url,
+          id, title, description, image_url, file_urls, technologies, status, project_phase, github_url, demo_url,
           profiles:profiles!projects_user_id_fkey ( first_name, last_name )
         `)
         .eq('status', 'approved')
@@ -113,7 +117,7 @@ const Projects = () => {
                 description={(project as any).description}
                 image={(project as any).file_urls?.[0] || (project as any).image_url || (project as any).image || projectRobotics}
                 technologies={(project as any).technologies}
-                status={(project as any).status}
+                status={(project as any).project_phase || (project as any).status}
                 author={(project as any).profiles ? `${(project as any).profiles?.first_name || ''} ${(project as any).profiles?.last_name || ''}`.trim() : 'DÆDALE Team'}
                 links={{
                   github: (project as any).github_url || (project as any).links?.github,

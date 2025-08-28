@@ -170,9 +170,12 @@ const TutorialDetail = () => {
           {/* Tutorial Content */}
           <Card className="p-8 mb-8">
             <div className="prose prose-neutral dark:prose-invert max-w-none">
-              <div style={{ whiteSpace: 'pre-wrap' }}>
-                {tutorial.content}
-              </div>
+              <div 
+                style={{ whiteSpace: 'pre-wrap' }}
+                dangerouslySetInnerHTML={{ 
+                  __html: tutorial.content.replace(/\n/g, '<br/>').replace(/## /g, '<h2>').replace(/<h2>/g, '<h2 class="text-2xl font-bold mt-8 mb-4">') 
+                }}
+              />
             </div>
           </Card>
 

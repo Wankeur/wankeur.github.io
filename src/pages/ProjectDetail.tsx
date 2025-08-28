@@ -29,6 +29,7 @@ interface Project {
   file_urls?: string[];
   technologies: string[];
   status: string;
+  project_phase: string;
   github_url?: string;
   demo_url?: string;
   created_at: string;
@@ -70,6 +71,7 @@ const ProjectDetail = () => {
             file_urls: [projectAutomation],
             technologies: ["Siemens", "TIA Portal", "HMI", "SCADA"],
             status: "approved",
+            project_phase: "completed",
             github_url: "#",
             demo_url: "#",
             created_at: "2024-01-15",
@@ -86,6 +88,7 @@ const ProjectDetail = () => {
             file_urls: [projectAutomation],
             technologies: ["Siemens", "TIA Portal", "HMI", "WinCC Unified"],
             status: "approved",
+            project_phase: "legacy",
             github_url: "#",
             demo_url: "#",
             created_at: "2024-01-10",
@@ -102,6 +105,7 @@ const ProjectDetail = () => {
             file_urls: [projectRobotics],
             technologies: ["ROS2", "C++", "Python", "Gazebo"],
             status: "approved",
+            project_phase: "in_development",
             github_url: "#",
             created_at: "2024-01-05",
             profiles: {
@@ -165,11 +169,15 @@ const ProjectDetail = () => {
     }
   };
 
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case "approved":
+  const getStatusColor = (phase: string) => {
+    switch (phase) {
+      case "completed":
         return "bg-green-500/20 text-green-400 border-green-500/30";
-      case "pending":
+      case "in_development":
+        return "bg-blue-500/20 text-blue-400 border-blue-500/30";
+      case "legacy":
+        return "bg-purple-500/20 text-purple-400 border-purple-500/30";
+      case "idea":
         return "bg-yellow-500/20 text-yellow-400 border-yellow-500/30";
       default:
         return "bg-muted text-muted-foreground";
@@ -231,8 +239,8 @@ const ProjectDetail = () => {
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <h1 className="text-4xl font-bold">{project.title}</h1>
-                  <Badge className={`${getStatusColor(project.status)} border`}>
-                    {project.status}
+                  <Badge className={`${getStatusColor(project.project_phase)} border`}>
+                    {project.project_phase.replace('_', ' ')}
                   </Badge>
                 </div>
                 
